@@ -49,7 +49,7 @@ class FallingChar {
 var fallings = Array(Math.floor(process.stdout.columns / 2)).fill().map(() => new FallingChar())
 
 setInterval(() => {
-    screeb = screen.map((_, i) => bkg[i])
+    screen = screen.map((_, i) => bkg[i])
     fallings.forEach(f => f.draw())
     process._rawDebug(Buffer.from([0x1B]).toString("utf8")+"c"+colored(screen.join(""), 0, 233 )+moveCursor("Up", 1));
     fallings.forEach(f => f.update())
